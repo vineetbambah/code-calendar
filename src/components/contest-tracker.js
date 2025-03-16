@@ -2,7 +2,6 @@
 
 import { useState, useEffect } from "react"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
-import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Calendar } from "@/components/ui/calendar"
 import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover"
@@ -12,7 +11,7 @@ import { format } from "date-fns"
 import { CalendarIcon } from "lucide-react"
 import ContestTable from "./contest-table"
 import ThemeToggle from "./theme-toggle"
-import { fetchContests } from "@/lib/api"
+import { fetchContests } from "@/lib/api.jsx"
 
 export default function ContestTracker() {
   const [contests, setContests] = useState([])
@@ -25,14 +24,12 @@ export default function ContestTracker() {
       codechef: true,
       leetcode: true,
     },
-    search: "",
     dateRange: {
-      from: undefined ,
-      to: undefined ,
+      from: undefined,
+      to: undefined,
     },
   })
 
-  // Load bookmarked contests from localStorage on component mount
   useEffect(() => {
     const savedBookmarks = localStorage.getItem("bookmarkedContests")
     if (savedBookmarks) {
@@ -40,12 +37,10 @@ export default function ContestTracker() {
     }
   }, [])
 
-  // Save bookmarked contests to localStorage whenever they change
   useEffect(() => {
     localStorage.setItem("bookmarkedContests", JSON.stringify(bookmarkedContests))
   }, [bookmarkedContests])
 
-  // Fetch contests data
   useEffect(() => {
     const getContests = async () => {
       try {
@@ -80,13 +75,6 @@ export default function ContestTracker() {
         ...prev.platform,
         [platform]: !prev.platform[platform],
       },
-    }))
-  }
-
-  const handleSearchChange = (e) => {
-    setFilters((prev) => ({
-      ...prev,
-      search: e.target.value,
     }))
   }
 
@@ -164,13 +152,7 @@ export default function ContestTracker() {
             </div>
           </div>
         </div>
-        <ThemeToggle />
-      </div>
-
-      <div className="flex flex-col sm:flex-row gap-4">
-        <div className="flex-1">
-          <Input placeholder="Search contests..." value={filters.search} onChange={handleSearchChange} />
-        </div>
+        <div className="flex flex-col sm:flex-row gap-4">
         <Popover>
           <PopoverTrigger asChild>
             <Button variant="outline" className="w-full sm:w-auto justify-start text-left font-normal">
@@ -201,7 +183,13 @@ export default function ContestTracker() {
             />
           </PopoverContent>
         </Popover>
+        <div className="hidden md:block">
+        <ThemeToggle />
+        </div> 
       </div>
+      </div>
+
+      
 
       <Tabs defaultValue="upcoming" className="w-full">
         <TabsList className="grid w-full grid-cols-2">

@@ -37,12 +37,7 @@ export default function Home() {
           ))}
         </nav>
 
-        {/* CTA Button */}
-        <div className="hidden md:block">
-          <Button size="lg" className="bg-blue-600 hover:bg-blue-700 text-white rounded-md">
-            Login / Register
-          </Button>
-        </div>
+        <span></span>
 
         {/* Mobile Navigation */}
         <div className="md:hidden">

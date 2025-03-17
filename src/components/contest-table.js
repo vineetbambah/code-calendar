@@ -2,7 +2,7 @@
 
 import { Table, TableBody, TableCaption, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table"
 import { Button } from "@/components/ui/button"
-import { Bookmark, BookmarkCheck, ExternalLink, Youtube } from "lucide-react"
+import { Bookmark, BookmarkCheck, ExternalLink} from "lucide-react"
 import { format } from "date-fns"
 import { Badge } from "@/components/ui/badge"
 
@@ -31,7 +31,7 @@ export default function ContestTable({
       case "codeforces":
         return "bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-300"
       case "codechef":
-        return "bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-300"
+        return "bg-red-100 text-amber-800 dark:bg-ted-900 dark:text-amber-300"
       case "leetcode":
         return "bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-300"
       default:
@@ -58,7 +58,7 @@ export default function ContestTable({
           </TableHeader>
           <TableBody>
             {contests.map((contest) => (
-              <TableRow key={contest.id}>
+              <TableRow key={contest.key}>
                 <TableCell>
                   <Button
                     variant="ghost"

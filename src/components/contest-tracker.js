@@ -35,7 +35,7 @@ export default function ContestTracker() {
     const fetchContests = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://3.109.59.34:3001/contests");
+        const res = await axios.get("/api/contests");
         setContests(res.data);
       } catch (err) {
         setError("Failed to fetch contests. Please try again later.");

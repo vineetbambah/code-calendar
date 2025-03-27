@@ -12,7 +12,7 @@ import ContestTable from "./contest-table";
 import axios from "axios";
 
 export default function ContestTracker() {
-  const [contests, setContests] = useState([]); // Fix SSR issue (null avoids hydration error)
+  const [contests, setContests] = useState([]); 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
   const [bookmarkedContests, setBookmarkedContests] = useState([]);
@@ -30,12 +30,12 @@ export default function ContestTracker() {
     },
   });
 
-  // ✅ Correct API fetching
+  
   useEffect(() => {
     const fetchContests = async () => {
       try {
         setLoading(true);
-        const res = await axios.get("http://localhost:3001/contests");
+        const res = await axios.get("http://3.109.59.34:3001/contests");
         setContests(res.data);
       } catch (err) {
         setError("Failed to fetch contests. Please try again later.");
@@ -45,10 +45,9 @@ export default function ContestTracker() {
       }
     };
 
-    fetchContests(); // ✅ Call the function inside useEffect
+    fetchContests();
   }, []);
 
-  // ✅ Load bookmarked contests from localStorage
   useEffect(() => {
     const savedBookmarks = localStorage.getItem("bookmarkedContests");
     if (savedBookmarks) {
@@ -56,7 +55,6 @@ export default function ContestTracker() {
     }
   }, []);
 
-  // ✅ Save bookmarks to localStorage
   useEffect(() => {
     if (bookmarkedContests.length > 0) {
       localStorage.setItem("bookmarkedContests", JSON.stringify(bookmarkedContests));
@@ -94,7 +92,7 @@ export default function ContestTracker() {
   };
 
   const filterContests = (contests, upcoming) => {
-    if (!contests) return []; // ✅ Prevents hydration issues
+    if (!contests) return []; 
 
     const now = new Date();
 

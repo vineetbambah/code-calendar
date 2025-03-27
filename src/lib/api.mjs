@@ -2,9 +2,7 @@ import express from 'express';
 import axios from 'axios';
 import cors from 'cors';
 const app = express();
-app.use(cors({
-  origin: 'http://localhost:3000', // Allow only this origin
-}));
+app.use(cors());
 let integer = 0
 
 

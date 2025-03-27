@@ -224,7 +224,6 @@ export default function AdminContestsPage() {
                   <Label className="mb-2 block">Preview</Label>
                   <Button size="sm" variant="outline" asChild>
                     <a href={solutionUrl} target="_blank" rel="noopener noreferrer">
-                      <Youtube className="h-4 w-4 mr-1" />
                       View Solutions
                     </a>
                   </Button>

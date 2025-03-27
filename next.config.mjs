@@ -1,11 +1,12 @@
 /** @type {import('next').NextConfig} */
-export const nextConfig = {
+const nextConfig = {
     async rewrites() {
         return [
-          {
-            source: "/api/contests",
-            destination: "http://3.109.59.34:3001/contests",
-          },
+            {
+                source: "/api/contests",
+                destination: process.env.API_CONTESTS_URL,
+            },
         ];
-      },
+    },
 };
+export default nextConfig;

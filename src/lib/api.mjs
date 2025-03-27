@@ -106,6 +106,9 @@ app.get('/contests/:platform', async (req, res) => {
     res.status(500).json({ message: 'Failed to fetch contests' });
   }
 });
+app.get('/', (req, res) => {
+  res.send('Hello, the server is working!');
+});
 app.listen(3001, () => {
   console.log('Server is running on port 3001');
 });

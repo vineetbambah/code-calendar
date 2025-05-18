@@ -7,21 +7,14 @@ import { Sheet, SheetContent, SheetTrigger, SheetTitle } from '@/components/ui/s
 import { Menu } from 'lucide-react';
 const navigation = [
   { name: "Home", href: "/" },
-  { name: "TLE Eliminators", href: "https://www.tle-eliminators.com" },
-  { name: "Contests", href: "/about" },
+  { name: "Contests", href: "/" },
 ];
 export default function Home() {
   return (
   <>
   <header className="p-4 flex items-center justify-between dark:text-white">
         <Link href="/" className="flex items-center space-x-2 no-underline">
-          <Image
-            src="https://www.tle-eliminators.com/static/media/tle-eliminators.866328c32b7a996da404503789dfe6c0.svg"
-            alt="TLE Eliminators Logo"
-            width={30}
-            height={30}
-          />
-          <span className="text-2xl font-normal dark:text-white dark:bg-black/10">TLE Contest Tracker</span>
+          <span className="text-2xl font-normal dark:text-white dark:bg-black/10">Code Calendar</span>
         </Link>
 
         {/* Desktop Navigation */}
